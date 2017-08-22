@@ -154,7 +154,7 @@ zskiplistNode *zslInsert(zskiplist *zsl, double score, robj *obj) {
     // 从高到底在各层中查找插入位置
     for (i = zsl->level-1; i >= 0; i--) {
         /* store rank that is crossed to reach the insert position */
-        rank[i] = （i == (zsl->level-1)） ? 0 : rank[i+1];
+        rank[i] = (i == (zsl->level-1)) ? 0 : rank[i+1];
         // 在当前层找到一个下降节点，并将其指针保存在update数组中
         while (x->level[i].forward &&
             (x->level[i].forward->score < score ||
